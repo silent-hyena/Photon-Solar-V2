@@ -38,7 +38,7 @@ function FrontPage() {
     try {
       setLoading(true);
       // setHasFetched(false);
-      const res = await fetch("/api", {
+      const res = await fetch("/api/index", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ latitude: lat, longitude: long }),
