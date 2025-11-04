@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SolarInfo from "./Solar-data";
 import MapPicker from "./Map";
+import TopProgressBar from "./progress";
 
 function FrontPage() {
   const [isTable, setIsTable] = useState(false);
@@ -75,6 +76,7 @@ function FrontPage() {
 
   return (<>
     {/* <h3 className="mb-4 text-center" style={{ color: "white" }}>Solar Panel Feasibility Test</h3> */}
+    <TopProgressBar loading={isLoading}/>
 
     <h2 style={{ color: "white", fontWeight: "700", letterSpacing: "1px", textAlign: "center" }}>
       PHOTON <span style={{ fontWeight: "400" }}>— Solar Energy Assessment</span>
@@ -112,10 +114,10 @@ function FrontPage() {
 
 
 
-      { isLoading && <div className="spinner-border text-light" role="status">
+       {/* { isLoading && <div className="spinner-border text-light" role="status">
 
-      </div>}
-      {<SolarInfo monthAvg={data} />}
+      </div>} */}
+      {<SolarInfo monthAvg={data} />} 
 
 
 
