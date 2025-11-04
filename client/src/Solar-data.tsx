@@ -63,7 +63,7 @@ function SolarInfo({ monthAvg }: prop) {
                     <label>System Efficiency:</label>
                     <input defaultValue="0.8" step="0.001" {...register("efficiency", { required: true, min: 0, max: 1, valueAsNumber: true })} className="form-control" type="number" />
 
-                    <input type="submit" className="btn btn-primary" />
+                    <input type="submit"  className="btn btn-primary mt-3" />
                 </form>
             </div>
 

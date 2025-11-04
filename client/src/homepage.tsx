@@ -76,36 +76,56 @@ function FrontPage() {
 
   return (<>
     {/* <h3 className="mb-4 text-center" style={{ color: "white" }}>Solar Panel Feasibility Test</h3> */}
-    <TopProgressBar loading={isLoading}/>
+    <TopProgressBar loading={isLoading} />
 
     <h2 style={{ color: "white", fontWeight: "700", letterSpacing: "1px", textAlign: "center" }}>
       PHOTON <span style={{ fontWeight: "400" }}>— Solar Energy Assessment</span>
     </h2>
-    <div className="topbar">
-      <div className="introtext">
-        <p className="lead rounded bg-white p-3">
-          This interactive web application provides a reliable estimate of the
-          <strong> annual solar energy potential </strong> for any selected location worldwide.
-          Simply choose a location on the map and retrieve results using default system parameters.<br /><br />
 
-          For greater accuracy, you can adjust technical inputs such as system specifications,
-          panel efficiency, and installation parameters. The tool dynamically recalculates to
-          deliver projections tailored to your configuration.
-        </p>
-      </div>
 
-      <div className="mapArea">
-        <div className="mapBox">
-          <MapPicker setLocation={handleMapSubmit} />
+    <div className="container my-4">
+      <div className="row align-items-start g-4">
+        {/* Intro Section */}
+        <div className="col-12 col-md-6 d-flex justify-content-center">
+          <div className="introtext w-100">
+            <p className="lead rounded bg-white p-4 shadow-sm">
+              This interactive web application provides a reliable estimate of the
+              <strong> annual solar energy potential </strong> for any selected
+              location worldwide. Simply choose a location on the map and retrieve
+              results using default system parameters.
+              <br />
+              <br />
+              For greater accuracy, you can adjust technical inputs such as system
+              specifications, panel efficiency, and installation parameters. The
+              tool dynamically recalculates to deliver projections tailored to your
+              configuration.
+            </p>
+          </div>
         </div>
 
-        {<p>Latitide: {lat}, Longitude: {long} </p>}
-        <button type="button" className="btn btn-primary" onClick={() => fetchData(lat, long)}>Get Info</button>
+        {/* Map Section */}
+        <div className="col-12 col-md-6 d-flex flex-column align-items-center">
+          <div className="mapArea w-100 text-center">
+            <div className="mapBox mb-3">
+              <MapPicker setLocation={handleMapSubmit} />
+            </div>
 
+            <p>
+              Latitude: <strong>{lat}</strong>, Longitude: <strong>{long}</strong>
+            </p>
 
+            <button
+              type="button"
+              className="btn btn-primary mt-2"
+              onClick={() => fetchData(lat, long)}
+            >
+              Get Info
+            </button>
+          </div>
+        </div>
       </div>
-
     </div>
+
 
 
     <div className="container mt-4">
@@ -114,10 +134,10 @@ function FrontPage() {
 
 
 
-       {/* { isLoading && <div className="spinner-border text-light" role="status">
+      {/* { isLoading && <div className="spinner-border text-light" role="status">
 
       </div>} */}
-      {<SolarInfo monthAvg={data} />} 
+      {<SolarInfo monthAvg={data} />}
 
 
 
