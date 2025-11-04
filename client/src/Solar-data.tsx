@@ -49,7 +49,7 @@ function SolarInfo({ monthAvg }: prop) {
     }
     return (<>
         <div className="infobar">
-            <div className="solar-info-section  shadow rounded bg-white" style={{ maxWidth: "500px" }} >
+            <div className="solar-info-section ms-5  shadow rounded bg-white" style={{ maxWidth: "500px" }} >
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* register your input into the hook by invoking the "register" function */}
@@ -69,13 +69,19 @@ function SolarInfo({ monthAvg }: prop) {
 
             {<div className="card  shadow rounded bg-white" style={{ maxWidth: "500px" }} >
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Annual Energy Production(kwh):&nbsp; &nbsp; <strong>{(totalRad * panelArea * 30 * efficiency).toFixed(2)}</strong></li>
-                    <li className="list-group-item">Total Amount Saved(in Rupees):&nbsp; &nbsp;<strong>{(totalRad * panelArea * 30 * efficiency * unitPrice).toFixed(2)}</strong>  </li>
+                    <div className="m-5 p-3 border-0">
+                            <li className="list-group-item ">Annual Energy Production(kwh):&nbsp; &nbsp; <strong>{(totalRad * panelArea * 30 * efficiency).toFixed(2)}</strong></li>
+                            <li className="list-group-item ">Total Amount Saved(in Rupees):&nbsp; &nbsp;<strong>{(totalRad * panelArea * 30 * efficiency * unitPrice).toFixed(2)}</strong>  </li>
+                    </div>
+                    
 
                 </ul>
 
 
             </div>}
+
+          
+
 
         </div>
         <SolarChart data={monthAvg} />
